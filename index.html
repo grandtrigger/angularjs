@@ -11,6 +11,10 @@
     ngBind: Substitui elemento por expressão.
     
     ngRepeat: Uso de coleções ou arrays.
+    
+    ngModel: Leva dados da View para o $scope. inputs, selects e text areas.
+    
+    ngClick: diretiva que dispara um evento baseado ao evento click.
 -->
 <!DOCTYPE HTML>
 <html ng-app="listaTelefonica">
@@ -52,9 +56,13 @@
                     </tr>
                 </tbody>
             </table>
+            
+            <input class="form-control" type="text" name="nome" id="iNome" value="" placeholder="Seu Nome" ng-model="contato.nome">
+            <input class="form-control" type="text" name="telefone" id="iTelefone" value="" placeholder="Seu Telefone" ng-model="contato.telefone">
+            <button class="btn btn-primary" ng-click="adicionarContato(contato)" type="button">Adicionar</button>
+            <hr/>
+            {{contato}}
         </div>
-        
-        
         
         <script type="text/javascript" charset="utf-8" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->

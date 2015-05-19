@@ -7,4 +7,9 @@ angular.module("listaTelefonica").controller("listaTelefonicaController", functi
             {nome: "Ana", telefone: "888-999-99"},
             {nome: "Maria", telefone: "777-999-99"}
         ];
+        
+    $scope.adicionarContato = function(contato) {
+        $scope.contatos.push(angular.copy(contato));
+        delete $scope.contato;
+    };
 });
