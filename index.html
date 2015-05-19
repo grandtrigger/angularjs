@@ -1,14 +1,63 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<!-- 
+    Diretivas: Extensões do HTML que permitem a implementação de novos comportamentos, de forma declarativa
     
-        <title>AngularJS</title>
+    ngApp: diretiva que define as "fronteiras" da aplicação, ou seja, o Angular mapeia o DOM, limitando a execução de suas funcionalidades à tag ou elemento
+    onde a diretiva foi adicionada.adicionada
+    
+    Ao encontrar a diretiva, o AngualarJS compila e executa o escopo da diretiva em questão.
+    
+    ngController: vincula view e controller, através do $scope.$scope
+    
+    ngBind: Substitui elemento por expressão.
+    
+    ngRepeat: Uso de coleções ou arrays.
+-->
+<!DOCTYPE HTML>
+<html ng-app="listaTelefonica">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
         
-        <script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <title>Lista Telefônica</title>
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        
+        <link rel="stylesheet" href="css/index.css" title="" type="" />
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+        
+        <script src="modules/listaTelefonica.js" type="text/javascript" charset="utf-8"></script>
     </head>
     
-    <body>
+    <body ng-controller="listaTelefonicaController">
+    
+        <div class="jumbotron">
+            <h4 ng-bind="app"></h4>
+            <table class="table table-striped" id="tbContatos">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                    </tr>
+                </thead>
+                    
+                <tbody>
+                    <tr ng-repeat="contato in contatos">
+                        <td ng-repeat="(key, value) in contato">
+                            {{value}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         
+        
+        
+        <script type="text/javascript" charset="utf-8" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     </body>
 </html>
