@@ -14,7 +14,9 @@
     
     ngModel: Leva dados da View para o $scope. inputs, selects e text areas.
     
-    ngClick: diretiva que dispara um evento baseado ao evento click.
+    ngClick: diretiva que dispara um evento baseado no evento click.
+    
+    ngDisable: desabilita um elemento
 -->
 <!DOCTYPE HTML>
 <html ng-app="listaTelefonica">
@@ -44,19 +46,23 @@
             </div>
             
             <div id="divLista" class="col-md-12">
-                <table class="table table-striped" id="tbContatos">
+                <table class="table table-striped" id="tbContatos" ng-show="contatos.length > 0">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Nome</th>
                             <th>Telefone</th>
+                            <th>Operadora</th>
                         </tr>
                     </thead>
                         
                     <tbody>
                         <tr ng-repeat="contato in contatos">
-                            <td ng-repeat="(key, value) in contato">
-                                {{value}}
-                            </td>
+                            <td><input type="checkbox" name="" id="" value="" ng-model="contato.selecionado" /></td>
+                            <td>{{contato.nome}}</td>
+                            <td>{{contato.telefone}}</td>
+                            <td>{{contato.operadora.nome}}</td>
+                            <td><div class="corContato" ng-style="{'background-color': contato.cor}"></div></td>
                         </tr>
                     </tbody>
                 </table>
@@ -64,8 +70,19 @@
             
             <input class="form-control" type="text" name="nome" id="iNome" value="" placeholder="Seu Nome" ng-model="contato.nome">
             <input class="form-control" type="text" name="telefone" id="iTelefone" value="" placeholder="Seu Telefone" ng-model="contato.telefone">
-            <button class="btn btn-primary" ng-click="adicionarContato(contato)" type="button">Adicionar</button>
+            
+            <select name="" id="" class="form-control" ng-model="contato.operadora" ng-options="operadora.nome group by operadora.categoria for operadora in operadoras">
+                <option value="">Selecione uma Operadora</option>
+            </select>
+            
+            <div class="col-md-12">
+                <button class="btn btn-primary" ng-click="adicionarContato(contato)" ng-disabled="!contato.nome || !contato.telefone" type="button">Adicionar Contato</button>
+            
+                <button class="btn btn-danger" ng-click="apagarContato(contatos)" ng-if="isContatoSelecionado(contatos)" type="button">Remover Contato</button>
+            </div>                
+            
             <hr/>
+            
             {{contato}}
         </div>
         
