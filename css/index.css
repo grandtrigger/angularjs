@@ -1,8 +1,25 @@
 .jumbotron {
+    background-color: #FFE6E6;
     width: 400px;
     text-align: center;
     margin: 0 auto;
     margin-top: 40px;
+    padding-top: 0px;
+    border-radius:10px;
+}
+
+#divCabeca {
+    background-color: #BE789C;
+    padding: 40px 0px;
+    color: #ffffff;
+}
+
+#divLista {
+    margin-top: 30px;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: #C7E5AA;
 }
 
 .table>td, th {

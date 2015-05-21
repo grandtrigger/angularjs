@@ -39,23 +39,28 @@
     <body ng-controller="listaTelefonicaController">
     
         <div class="jumbotron">
-            <h4 ng-bind="app"></h4>
-            <table class="table table-striped" id="tbContatos">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Telefone</th>
-                    </tr>
-                </thead>
-                    
-                <tbody>
-                    <tr ng-repeat="contato in contatos">
-                        <td ng-repeat="(key, value) in contato">
-                            {{value}}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div id="divCabeca" class="col-md-12">
+                <h4 ng-bind="app"></h4>
+            </div>
+            
+            <div id="divLista" class="col-md-12">
+                <table class="table table-striped" id="tbContatos">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                        </tr>
+                    </thead>
+                        
+                    <tbody>
+                        <tr ng-repeat="contato in contatos">
+                            <td ng-repeat="(key, value) in contato">
+                                {{value}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             
             <input class="form-control" type="text" name="nome" id="iNome" value="" placeholder="Seu Nome" ng-model="contato.nome">
             <input class="form-control" type="text" name="telefone" id="iTelefone" value="" placeholder="Seu Telefone" ng-model="contato.telefone">
